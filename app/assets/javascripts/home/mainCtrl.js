@@ -2,8 +2,11 @@ angular.module('flapperNews')
 .controller('MainCtrl', ['postsFactory',function(postsFactory){
   var self = this;
   
+  
+
   self.posts = [];
   self.posts = postsFactory.posts;
+  
   
   
   self.addPost = function(){

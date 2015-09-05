@@ -11,6 +11,7 @@ function($scope, $state, Auth){
   };
 
   this.register = function() {
+    
     Auth.register(this.user).then(function(){
       $state.go('home');
     });
