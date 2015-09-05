@@ -20,7 +20,7 @@ angular.module('flapperNews')
   };
 
   self.incrementUpvotes = function(post) {
-    posts.upvote(post)
+    postsFactory.upvote(post)
 };
 
 }])

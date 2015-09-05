@@ -4,22 +4,25 @@ angular.module('flapperNews')
 'Auth',
 function($scope, Auth){
  	
+  var self = this;
+
  	Auth.currentUser().then(function (user){
-    	this.user = user;
+      self.user = user;
 	});	
 
+
 	$scope.$on('devise:new-registration', function (e, user){
-    $scope.user = user;
+    self.user = user;
   });
 
   $scope.$on('devise:login', function (e, user){
-    $scope.user = user;
+    self.user = user;
   });
 
   $scope.$on('devise:logout', function (e, user){
-    $scope.user = {};
+    self.user = {};
   });
 
- 	this.signedIn = Auth.isAuthenticated;
-  	this.logout = Auth.logout;
+ 	self.signedIn = Auth.isAuthenticated;
+  self.logout = Auth.logout;
 }]);
