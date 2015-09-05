@@ -1,4 +1,4 @@
-angular.module('flapperNews', ['templates','ngRoute'])
+angular.module('flapperNews', ['templates','ngRoute','Devise'])
 .config(
 
 function($routeProvider) {
