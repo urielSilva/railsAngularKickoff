@@ -4,10 +4,22 @@
   </h2>
 
 
-  <div class="panel-body text-left">
-    <button class="btn btn-info" ui-sref="technology-add">Adicionar Tecnologia</button>
-
-  </div>
+  <form name="form" ng-submit="vm.submitForm(vm.tech)" class="form-horizontal" novalidate>
+  <div class="form-group" show-errors>
+          <label for="name" class="col-sm-1 control-label">Nome </label>
+          <div class="col-sm-2">
+            <input id="name" name="name" type="text" class="form-control"
+            ng-model="vm.tech.name">
+          </div>
+        
+          <label for="description" class="col-sm-1 control-label">Descrição </label>
+          <div class="col-sm-4">
+            <input id="description" name="description" type="text" class="form-control"
+            ng-model="vm.tech.description">
+          </div>
+          <button type="submit"  class="btn btn-success">Salvar Tecnologia</button>
+        </div>
+</form>
 
 
 <div class="panel panel-default">

@@ -9,14 +9,25 @@ function TechsController(Techs) {
 
   vm.techs = [];
   vm.delete = deleteRecord;
+  vm.tech = {};
+  vm.submitForm = submitForm;
 
   activate();
+
 
   /////////////////////////////////////////////////////////
 
   function activate() {
     vm.techs = Techs.query();
   }
+
+  function submitForm(tech) {
+      Techs.save({tech: tech}).$promise.then(function() {
+        vm.tech  = {};
+        vm.techs = Techs.query();
+    })
+  }
+
 
   function deleteRecord(record) {
 
