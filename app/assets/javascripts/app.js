@@ -84,6 +84,17 @@ angular.module('sap', ['templates','ui.router','ui.bootstrap','ngResource','Devi
         }
       },
     })
+    .state('sector-edit', {
+      url: '/sector/edit/:id',
+      controller: 'SectorFormController',
+      controllerAs: 'vm',
+      templateUrl: 'sectors/_sector-form.html',
+      resolve: {
+        CurrentSector: ['$stateParams', 'Sectors', function($stateParams, Sectors) {
+          return Sectors.get($stateParams);
+        }]
+      },
+    })
     .state('knowledgeLevels', {
       url: '/knowledge_levels',
       controller: 'KnowledgeLevelsController',
@@ -112,14 +123,31 @@ angular.module('sap', ['templates','ui.router','ui.bootstrap','ngResource','Devi
         }]
       },
     })
-    .state('sector-edit', {
-      url: '/sector/edit/:id',
-      controller: 'SectorFormController',
+    .state('activityTypes', {
+      url: '/activity_types',
+      controller: 'ActivityTypesController',
       controllerAs: 'vm',
-      templateUrl: 'sectors/_sector-form.html',
+      templateUrl: 'types_activity/_activity-types.html',
+    })
+    .state('activityType-add', {
+      url: '/activity_types/add',
+      controller: 'ActivityTypeFormController',
+      controllerAs: 'vm',
+      templateUrl: 'types_activity/_activity-type-form.html',
       resolve: {
-        CurrentSector: ['$stateParams', 'Sectors', function($stateParams, Sectors) {
-          return Sectors.get($stateParams);
+        CurrentActivityType: function() {
+          return {};
+        }
+      },
+    })
+    .state('activityType-edit', {
+      url: '/activity_types/edit/:id',
+      controller: 'ActivityTypeFormController',
+      controllerAs: 'vm',
+      templateUrl: 'types_activity/_activity-type-form.html',
+      resolve: {
+        CurrentActivityType: ['$stateParams', 'ActivityTypes', function($stateParams, ActivityTypes) {
+          return ActivityTypes.get($stateParams);
         }]
       },
     })

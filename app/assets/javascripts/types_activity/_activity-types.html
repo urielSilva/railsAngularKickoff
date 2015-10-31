@@ -1,10 +1,10 @@
-  
-  <h2 class="panel-heading">
-    <span>Níveis de Conhecimento</span>
-  </h2>
 
+  <h2 class="panel-heading">
+    <span>Tipos de Atividade</span>
+  </h2>
+  
   <div class="panel-body text-left">
-    <button class="btn btn-info" ui-sref="knowledgeLevel-add">Adicionar Nível de Conhecimento</button>
+    <button class="btn btn-info" ui-sref="activityType-add">Adicionar Tipo de Atividade</button>
 
   </div>
 
@@ -14,29 +14,29 @@
     <table class="table table-striped table-bordered table-hover">
       <thead>
         <tr>
-          <th>Nível</th>
+          <th>Nome</th>
           <th>Descrição</th>
           <th>Ações</th>
         </tr>
       </thead>
       <tbody>
-        <tr ng-repeat="knowledgeLevel in vm.knowledgeLevels">
+        <tr ng-repeat="activityType in vm.activityTypes">
           <td>
-            <div class="media" ui-sref="knowledgeLevel-edit({id: knowledgeLevel.id})">
+            <div class="media" ui-sref="activityType-edit({id: activityType.id})">
               <div class="media-body">
-                {{knowledgeLevel.level}}
+                {{activityType.name}}
               </div>
             </div>
           </td>
           <td>
-            <div class="media" ui-sref="knowledgeLevel-edit({id: knowledgeLevel.id})">
+            <div class="media" ui-sref="activityType-edit({id: activityType.id})">
               <div class="media-body">
-                {{knowledgeLevel.description}}
+                {{activityType.description}}
               </div>
             </div>
           </td>
           <td>
-            <button ng-click="vm.delete(knowledgeLevel)" class="btn btn-danger">
+            <button ng-click="vm.delete(activityType)" class="btn btn-danger">
               <i class="fa fa-times"></i>
             </button>
           </td>

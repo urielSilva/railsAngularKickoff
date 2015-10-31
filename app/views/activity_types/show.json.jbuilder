@@ -1,0 +1,1 @@
+json.extract! @activityType, :id, :name , :description
