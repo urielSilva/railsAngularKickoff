@@ -80,7 +80,7 @@ angular.module('sap', ['templates','ui.router','ui.bootstrap','ngResource','Devi
       templateUrl: 'sectors/_sector-form.html',
       resolve: {
         CurrentSector: function() {
-          return {};
+          return {areas_attributes: []};
         }
       },
     })
@@ -148,6 +148,34 @@ angular.module('sap', ['templates','ui.router','ui.bootstrap','ngResource','Devi
       resolve: {
         CurrentActivityType: ['$stateParams', 'ActivityTypes', function($stateParams, ActivityTypes) {
           return ActivityTypes.get($stateParams);
+        }]
+      },
+    })
+    .state('technologies', {
+      url: '/technologies',
+      controller: 'TechsController',
+      controllerAs: 'vm',
+      templateUrl: 'tech/_techs.html',
+    })
+    .state('technology-add', {
+      url: '/technology/add',
+      controller: 'TechFormController',
+      controllerAs: 'vm',
+      templateUrl: 'tech/_tech-form.html',
+      resolve: {
+        CurrentTech: function() {
+          return {};
+        }
+      },
+    })
+    .state('technology-edit', {
+      url: '/technology/edit/:id',
+      controller: 'TechFormController',
+      controllerAs: 'vm',
+      templateUrl: 'tech/_tech-form.html',
+      resolve: {
+        CurrentTech: ['$stateParams', 'Techs', function($stateParams, Techs) {
+          return Techs.get($stateParams);
         }]
       },
     })

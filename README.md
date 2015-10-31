@@ -1,2 +1,2 @@
-# railsAngularKickoff
-AngularJS + Rails app containing basic config and an example Posts CRUD.
+# SAP
+Sistema de Acompanhamento de Projetos desenvolvido para a CJR.

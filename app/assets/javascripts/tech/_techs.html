@@ -1,0 +1,48 @@
+  
+  <h2 class="panel-heading">
+    <span>Tecnologias</span>
+  </h2>
+
+
+  <div class="panel-body text-left">
+    <button class="btn btn-info" ui-sref="technology-add">Adicionar Tecnologia</button>
+
+  </div>
+
+
+<div class="panel panel-default">
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Descrição</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="tech in vm.techs">
+          <td>
+            <div class="media" ui-sref="technology-edit({id: tech.id})">
+              <div class="media-body">
+                {{tech.name}}
+              </div>
+            </div>
+          </td>
+          <td>
+            <div class="media" ui-sref="technology-edit({id: tech.id})">
+              <div class="media-body">
+                {{tech.description}}
+              </div>
+            </div>
+          </td>
+          <td>
+            <button ng-click="vm.delete(tech)" class="btn btn-danger">
+              <i class="fa fa-times"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

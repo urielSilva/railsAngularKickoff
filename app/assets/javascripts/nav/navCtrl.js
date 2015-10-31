@@ -32,6 +32,7 @@ function($scope, Auth){
     { url: "sectors", name: "Núcleos"},
     { url: "knowledge_levels", name: "Níveis de Conhecimento"},
     { url: "activity_types", name: "Tipos de Atividade"},
+    { url: "technologies", name: "Tecnologias"},
     ];
 
   $scope.status = {
