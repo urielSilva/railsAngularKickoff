@@ -28,6 +28,8 @@ class SectorsController < ApplicationController
   def create
     @sector = Sector.new(sector_params)
 
+    
+
 
     respond_to do |format|
       if @sector.save
@@ -72,7 +74,8 @@ class SectorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sector_params
-      params[:sector].permit(:short_name,:name, :description)
+      params[:sector].permit(:short_name,:name, :description,
+        :areas_attributes => [:name])
     end
 
 end
