@@ -9,13 +9,20 @@ function JobsController(Jobs) {
 
   vm.jobs = [];
   vm.delete = deleteRecord;
-
+  vm.job = {}
   activate();
-
+  vm.submitForm = submitForm;
   /////////////////////////////////////////////////////////
 
   function activate() {
     vm.jobs = Jobs.query();
+  }
+
+function submitForm(job) {
+      Jobs.save({job: job}).$promise.then(function() {
+        vm.job = {};
+        vm.jobs = Jobs.query();
+    })
   }
 
   function deleteRecord(record) {

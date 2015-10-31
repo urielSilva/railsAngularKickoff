@@ -3,11 +3,16 @@
     <span>Cargos</span>
   </h2>
 
-  <div class="panel-body text-left">
-    <button class="btn btn-info" ui-sref="job-add">Adicionar Cargo</button>
-
-  </div>
-
+   <form name="form" ng-submit="vm.submitForm(vm.job)" class="form-horizontal" novalidate>
+    <div class="form-group" show-errors>
+            <label for="name" class="col-sm-2 control-label">Nome </label>
+            <div class="col-sm-6">
+              <input id="name" name="name" type="text" class="form-control"
+              ng-model="vm.job.name">
+            </div>
+            <button type="submit"  class="btn btn-success">Salvar Cargo</button>
+          </div>
+  </form>
 
 <div class="panel panel-default">
   <div class="table-responsive">

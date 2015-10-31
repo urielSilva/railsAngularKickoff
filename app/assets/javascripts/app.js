@@ -17,17 +17,6 @@ angular.module('sap', ['templates','ui.router','ui.bootstrap','ngResource','Devi
       controllerAs: 'vm',
       templateUrl: 'jobs/_jobs.html',
     })
-    .state('job-add', {
-      url: '/jobs/add',
-      controller: 'JobFormController',
-      controllerAs: 'vm',
-      templateUrl: 'jobs/_job-form.html',
-      resolve: {
-        CurrentJob: function() {
-          return {};
-        }
-      },
-    })
     .state('job-edit', {
       url: '/job/edit/:id',
       controller: 'JobFormController',
