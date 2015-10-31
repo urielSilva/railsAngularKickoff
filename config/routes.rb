@@ -9,9 +9,12 @@ Rails.application.routes.draw do
   resources :roles
   resources :activity_types
   resources :knowledge_levels
-  resources :sectors
+  
+  resources :sectors do
+    resources :areas  
+  end
   resources :technologies
-
+  
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 

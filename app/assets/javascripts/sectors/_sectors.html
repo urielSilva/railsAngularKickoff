@@ -18,7 +18,7 @@
           <th>Sigla</th>
           <th>Nome</th>
           <th>Descrição</th>
-          <th>Ações</th>
+          <th colspan="2">Ações</th>
         </tr>
       </thead>
       <tbody>
@@ -44,10 +44,18 @@
               </div>
             </div>
           </td>
-          <td>
-            <button ng-click="vm.delete(sector)" class="btn btn-danger">
-              <i class="fa fa-times"></i>
-            </button>
+          <td style="border-right: 0">            
+              
+              <a href="#/sectors/{{sector.id}}/areas">
+                <i  title="Visualizar"class="glyphicon glyphicon-eye-open btn btn-info btn-xs"></i>
+              </a>
+          </td>
+          <td style="border-left: 0" >
+            <i title="Excluir" ng-click="vm.delete(sector)" 
+            class="glyphicon glyphicon-remove btn btn-danger btn-xs"></i>
+            
+              
+            
           </td>
         </tr>
       </tbody>

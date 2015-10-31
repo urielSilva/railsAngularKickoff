@@ -19,7 +19,7 @@ function JobFormController($scope, CurrentJob, Jobs, $state, $http) {
   }
 
   function submitForm(job) {
-    $scope.$broadcast('show-errors-check-validity');
+    
 
     if (job.id) {
       Jobs.update({id: job.id}, {job: job}).$promise.then(function() {

@@ -1,0 +1,45 @@
+
+  <h2 class="panel-heading">
+    <span>Áreas</span>
+  </h2>
+
+  <form name="form" ng-submit="vm.submitForm(vm.area)" class="form-horizontal" novalidate>
+    <div class="form-group" show-errors>
+            <label for="name" class="col-sm-2 control-label">Nome </label>
+            <div class="col-sm-6">
+              <input id="name" name="name" type="text" class="form-control"
+              ng-model="vm.area.name">
+            </div>
+            <button type="submit"  class="btn btn-success">Salvar Área</button>
+          </div>
+  </form>
+
+
+<div class="panel panel-default">
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="area in vm.areas">
+          <td>
+            <div class="media" ui-sref="area-edit({id: area.id})">
+              <div class="media-body">
+                {{area.name}}
+              </div>
+            </div>
+          </td>
+          <td>
+            <button ng-click="vm.delete(area)" class="btn btn-danger">
+              <i class="fa fa-times"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

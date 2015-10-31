@@ -179,6 +179,12 @@ angular.module('sap', ['templates','ui.router','ui.bootstrap','ngResource','Devi
         }]
       },
     })
+    .state('areas', {
+      url: '/sectors/:sector_id/areas',
+      controller: 'AreasController',
+      controllerAs: 'vm',
+      templateUrl: 'area/_areas.html',
+    })
     .state('login', {
       url: '/login',
       templateUrl: 'auth/_login.html',

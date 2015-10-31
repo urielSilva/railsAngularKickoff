@@ -24,11 +24,13 @@ function SectorFormController($scope, CurrentSector, Sectors, $state, $http) {
   }
 
   function deleteArea(area) {
-    angular.forEach(vm.sector.areas, function(value, key) {
-      if (key.id === area.id) {
-        vm.sector.areas.splice(value,1)
+    angular.forEach(vm.sector.areas_attributes, function(key, value) {
+      if (value.id == area.id) {
+        vm.sector.areas_attributes.splice(value,1)
       }
     })
+    
+   
   }
 
   function activate() {
@@ -37,6 +39,7 @@ function SectorFormController($scope, CurrentSector, Sectors, $state, $http) {
 
   function submitForm(sector) {
     if (sector.id) {
+      console.log(sector.areas_attributes);
       Sectors.update({id: sector.id}, {sector: sector}).$promise.then(function() {
         $state.go('sectors');
       });
