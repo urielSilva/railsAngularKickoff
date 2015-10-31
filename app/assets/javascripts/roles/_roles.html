@@ -3,11 +3,17 @@
     <span>Perfis</span>
   </h2>
 
-  <div class="panel-body text-left">
-    <button class="btn btn-info" ui-sref="role-add">Adicionar Perfil</button>
-
-  </div>
-
+  
+<form name="form" ng-submit="vm.submitForm(vm.role)" class="form-horizontal" novalidate>
+  <div class="form-group" show-errors>
+          <label for="name" class="col-sm-2 control-label">Nome </label>
+          <div class="col-sm-6">
+            <input id="name" name="name" type="text" class="form-control"
+            ng-model="vm.role.name">
+          </div>
+          <button type="submit"  class="btn btn-success">Salvar Perfil</button>
+        </div>
+</form>
 
 <div class="panel panel-default">
   <div class="table-responsive">
@@ -28,9 +34,8 @@
             </div>
           </td>
           <td>
-            <button ng-click="vm.delete(role)" class="btn btn-danger">
-              <i class="fa fa-times"></i>
-            </button>
+            <i title="Excluir" ng-click="vm.delete(role)" 
+            class="glyphicon glyphicon-remove btn btn-danger btn-xs"></i>
           </td>
         </tr>
       </tbody>

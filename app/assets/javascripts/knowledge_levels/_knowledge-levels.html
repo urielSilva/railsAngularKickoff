@@ -3,10 +3,23 @@
     <span>Níveis de Conhecimento</span>
   </h2>
 
-  <div class="panel-body text-left">
-    <button class="btn btn-info" ui-sref="knowledgeLevel-add">Adicionar Nível de Conhecimento</button>
+  <form name="form" ng-submit="vm.submitForm(vm.knowledgeLevel)" class="form-horizontal" novalidate>
+  <div class="form-group" show-errors>
+          <label for="level" class="col-sm-1 control-label">Nível </label>
+          <div class="col-sm-2">
+            <input id="name" name="level" type="text" class="form-control"
+            ng-model="vm.knowledgeLevel.level">
+          </div>
+        
+          <label for="description" class="col-sm-1 control-label">Descrição </label>
+          <div class="col-sm-4">
+            <input id="description" name="description" type="text" class="form-control"
+            ng-model="vm.knowledgeLevel.description">
+          </div>
+          <button type="submit"  class="btn btn-success">Salvar Nível de Conhecimento</button>
+        </div>
+</form>
 
-  </div>
 
 
 <div class="panel panel-default">
@@ -36,9 +49,8 @@
             </div>
           </td>
           <td>
-            <button ng-click="vm.delete(knowledgeLevel)" class="btn btn-danger">
-              <i class="fa fa-times"></i>
-            </button>
+            <i title="Excluir" ng-click="vm.delete(knowledgeLevel)" 
+            class="glyphicon glyphicon-remove btn btn-danger btn-xs"></i>
           </td>
         </tr>
       </tbody>

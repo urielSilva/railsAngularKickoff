@@ -25,13 +25,6 @@ function JobFormController($scope, CurrentJob, Jobs, $state, $http) {
       Jobs.update({id: job.id}, {job: job}).$promise.then(function() {
         $state.go('jobs');
       });
-    } else {
-      Jobs.save({job: job}).$promise.then(function() {
-        $state.go('jobs');
-      }, function(error) {
-        
-      });
-    }
+    } 
   }
-
 }

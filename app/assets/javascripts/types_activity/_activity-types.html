@@ -3,11 +3,22 @@
     <span>Tipos de Atividade</span>
   </h2>
   
-  <div class="panel-body text-left">
-    <button class="btn btn-info" ui-sref="activityType-add">Adicionar Tipo de Atividade</button>
-
-  </div>
-
+  <form name="form" ng-submit="vm.submitForm(vm.activityType)" class="form-horizontal" novalidate>
+  <div class="form-group" show-errors>
+          <label for="name" class="col-sm-1 control-label">Nome </label>
+          <div class="col-sm-2">
+            <input id="name" name="name" type="text" class="form-control"
+            ng-model="vm.activityType.name">
+          </div>
+        
+          <label for="description" class="col-sm-1 control-label">Descrição </label>
+          <div class="col-sm-4">
+            <input id="description" name="description" type="text" class="form-control"
+            ng-model="vm.activityType.description">
+          </div>
+          <button type="submit"  class="btn btn-success">Salvar Tipo de Atividade</button>
+        </div>
+</form>
 
 <div class="panel panel-default">
   <div class="table-responsive">
@@ -36,9 +47,9 @@
             </div>
           </td>
           <td>
-            <button ng-click="vm.delete(activityType)" class="btn btn-danger">
-              <i class="fa fa-times"></i>
-            </button>
+            <i title="Excluir" ng-click="vm.delete(activityType)" 
+            class="glyphicon glyphicon-remove btn btn-danger btn-xs"></i>
+            
           </td>
         </tr>
       </tbody>

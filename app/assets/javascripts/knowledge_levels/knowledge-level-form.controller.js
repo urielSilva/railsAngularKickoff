@@ -25,13 +25,7 @@ function KnowledgeLevelFormController($scope, CurrentKnowledgeLevel, KnowledgeLe
       KnowledgeLevels.update({id: knowledgeLevel.id}, {knowledgeLevel: knowledgeLevel}).$promise.then(function() {
         $state.go('knowledgeLevels');
       });
-    } else {
-      KnowledgeLevels.save({knowledgeLevel: knowledgeLevel}).$promise.then(function() {
-        $state.go('knowledgeLevels');
-      }, function(error) {
-        
-      });
-    }
+    } 
   }
 
 }

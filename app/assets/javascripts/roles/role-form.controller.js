@@ -25,13 +25,7 @@ function RoleFormController($scope, CurrentRole, Roles, $state, $http) {
       Roles.update({id: role.id}, {role: role}).$promise.then(function() {
         $state.go('roles');
       });
-    } else {
-      Roles.save({role: role}).$promise.then(function() {
-        $state.go('roles');
-      }, function(error) {
-        
-      });
-    }
+    } 
   }
 
 }

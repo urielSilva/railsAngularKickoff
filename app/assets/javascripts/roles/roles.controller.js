@@ -8,14 +8,22 @@ function RolesController(Roles) {
   var vm = this;
 
   vm.roles = [];
+  vm.role = {};
   vm.delete = deleteRecord;
-
+  vm.submitForm = submitForm;
   activate();
 
   /////////////////////////////////////////////////////////
 
   function activate() {
     vm.roles = Roles.query();
+  }
+
+  function submitForm(role) {
+      Roles.save({role: role}).$promise.then(function() {
+        vm.role  = {};
+        vm.roles = Roles.query();
+    })
   }
 
   function deleteRecord(record) {

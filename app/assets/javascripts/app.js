@@ -34,17 +34,6 @@ angular.module('sap', ['templates','ui.router','ui.bootstrap','ngResource','Devi
       controllerAs: 'vm',
       templateUrl: 'roles/_roles.html',
     })
-    .state('role-add', {
-      url: '/roles/add',
-      controller: 'RoleFormController',
-      controllerAs: 'vm',
-      templateUrl: 'roles/_role-form.html',
-      resolve: {
-        CurrentRole: function() {
-          return {};
-        }
-      },
-    })
     .state('role-edit', {
       url: '/role/edit/:id',
       controller: 'RoleFormController',
@@ -89,17 +78,6 @@ angular.module('sap', ['templates','ui.router','ui.bootstrap','ngResource','Devi
       controller: 'KnowledgeLevelsController',
       controllerAs: 'vm',
       templateUrl: 'knowledge_levels/_knowledge-levels.html',
-    })
-    .state('knowledgeLevel-add', {
-      url: '/knowledge_levels/add',
-      controller: 'KnowledgeLevelFormController',
-      controllerAs: 'vm',
-      templateUrl: 'knowledge_levels/_knowledge-level-form.html',
-      resolve: {
-        CurrentKnowledgeLevel: function() {
-          return {};
-        }
-      },
     })
     .state('knowledgeLevel-edit', {
       url: '/knowledge_levels/edit/:id',
