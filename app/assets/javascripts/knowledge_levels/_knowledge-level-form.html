@@ -1,0 +1,33 @@
+<form name="form" ng-submit="vm.submitForm(vm.knowledgeLevel)" class="form-horizontal" novalidate>
+  <div class="panel panel-default">
+    <div class="panel-header">
+      <h2 class="panel-heading">
+        <span ng-if="!vm.knowledgeLevel.id">Adição de Nível de Conhecimento</span>
+        <span ng-if="vm.knowledgeLevel.id">Edição de Nível de Conhecimento</span>
+      </h2>
+    </div>
+    <div class="panel-body">
+      <fieldset>
+        <div class="form-group" show-errors>
+          <label for="level" class="col-sm-2 control-label">Nível </label>
+          <div class="col-sm-10">
+            <input id="level" name="level" type="text" class="form-control"
+            ng-model="vm.knowledgeLevel.level">
+          </div>
+        </div>
+      </fieldset>
+      <fieldset>
+        <div class="form-group" show-errors>
+          <label for="description" class="col-sm-2 control-label">Descrição </label>
+          <div class="col-sm-10">
+            <input id="description" name="description" type="text" class="form-control"
+            ng-model="vm.knowledgeLevel.description">
+          </div>
+        </div>
+      </fieldset>
+    </div>
+    <div class="panel-footer">
+      <button type="submit" class="btn btn-success">Salvar Núcleo</button>
+    </div>
+  </div>
+</form>

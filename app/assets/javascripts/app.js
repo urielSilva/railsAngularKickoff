@@ -84,6 +84,34 @@ angular.module('sap', ['templates','ui.router','ui.bootstrap','ngResource','Devi
         }
       },
     })
+    .state('knowledgeLevels', {
+      url: '/knowledge_levels',
+      controller: 'KnowledgeLevelsController',
+      controllerAs: 'vm',
+      templateUrl: 'knowledge_levels/_knowledge-levels.html',
+    })
+    .state('knowledgeLevel-add', {
+      url: '/knowledge_levels/add',
+      controller: 'KnowledgeLevelFormController',
+      controllerAs: 'vm',
+      templateUrl: 'knowledge_levels/_knowledge-level-form.html',
+      resolve: {
+        CurrentKnowledgeLevel: function() {
+          return {};
+        }
+      },
+    })
+    .state('knowledgeLevel-edit', {
+      url: '/knowledge_levels/edit/:id',
+      controller: 'KnowledgeLevelFormController',
+      controllerAs: 'vm',
+      templateUrl: 'knowledge_levels/_knowledge-level-form.html',
+      resolve: {
+        CurrentKnowledgeLevel: ['$stateParams', 'KnowledgeLevels', function($stateParams, KnowledgeLevels) {
+          return KnowledgeLevels.get($stateParams);
+        }]
+      },
+    })
     .state('sector-edit', {
       url: '/sector/edit/:id',
       controller: 'SectorFormController',

@@ -1,0 +1,1 @@
+json.extract! @knowledgeLevel, :id, :level , :description
