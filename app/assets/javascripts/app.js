@@ -67,6 +67,34 @@ angular.module('sap', ['templates','ui.router','ui.bootstrap','ngResource','Devi
         }]
       },
     })
+    .state('sectors', {
+      url: '/sectors',
+      controller: 'SectorsController',
+      controllerAs: 'vm',
+      templateUrl: 'sectors/_sectors.html',
+    })
+    .state('sector-add', {
+      url: '/sectors/add',
+      controller: 'SectorFormController',
+      controllerAs: 'vm',
+      templateUrl: 'sectors/_sector-form.html',
+      resolve: {
+        CurrentSector: function() {
+          return {};
+        }
+      },
+    })
+    .state('sector-edit', {
+      url: '/sector/edit/:id',
+      controller: 'SectorFormController',
+      controllerAs: 'vm',
+      templateUrl: 'sectors/_sector-form.html',
+      resolve: {
+        CurrentSector: ['$stateParams', 'Sectors', function($stateParams, Sectors) {
+          return Sectors.get($stateParams);
+        }]
+      },
+    })
     .state('login', {
       url: '/login',
       templateUrl: 'auth/_login.html',

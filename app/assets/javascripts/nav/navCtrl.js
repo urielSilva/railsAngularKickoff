@@ -28,7 +28,8 @@ function($scope, Auth){
 
   $scope.links = [
     { url: "jobs", name: "Cargos" },
-    { url: "roles", name: "Perfis"}
+    { url: "roles", name: "Perfis"},
+    { url: "sectors", name: "Núcleos"},
     ];
 
   $scope.status = {

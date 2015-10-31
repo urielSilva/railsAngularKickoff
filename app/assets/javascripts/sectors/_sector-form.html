@@ -1,0 +1,42 @@
+<form name="form" ng-submit="vm.submitForm(vm.sector)" class="form-horizontal" novalidate>
+  <div class="panel panel-default">
+    <div class="panel-header">
+      <h2 class="panel-heading">
+        <span ng-if="!vm.sector.id">Adição de Núcleo</span>
+        <span ng-if="vm.sector.id">Edição de Núcleo</span>
+      </h2>
+    </div>
+    <div class="panel-body">
+      <fieldset>
+        <div class="form-group" show-errors>
+          <label for="short_name" class="col-sm-2 control-label">Sigla </label>
+          <div class="col-sm-10">
+            <input id="short_name" name="short_name" type="text" class="form-control"
+            ng-model="vm.sector.short_name">
+          </div>
+        </div>
+      </fieldset>
+      <fieldset>
+        <div class="form-group" show-errors>
+          <label for="name" class="col-sm-2 control-label">Nome </label>
+          <div class="col-sm-10">
+            <input id="name" name="name" type="text" class="form-control"
+            ng-model="vm.sector.name">
+          </div>
+        </div>
+      </fieldset>
+      <fieldset>
+        <div class="form-group" show-errors>
+          <label for="description" class="col-sm-2 control-label">Descrição </label>
+          <div class="col-sm-10">
+            <input id="description" name="description" type="text" class="form-control"
+            ng-model="vm.sector.description">
+          </div>
+        </div>
+      </fieldset>
+    </div>
+    <div class="panel-footer">
+      <button type="submit" class="btn btn-success">Salvar Núcleo</button>
+    </div>
+  </div>
+</form>
