@@ -1,4 +1,4 @@
-angular.module('flapperNews', ['templates','ui.router','Devise'])
+angular.module('sap', ['templates','ui.router','ngResource','Devise'])
 .config(
 
 ['$stateProvider',
@@ -9,22 +9,35 @@ angular.module('flapperNews', ['templates','ui.router','Devise'])
       templateUrl: 'home/_home.html',
       controller: 'MainCtrl',
       controllerAs: 'ctrl',
-      resolve: {
-        postPromise: ['postsFactory', function(postsFactory){
-          return postsFactory.getAll();
-       }]
-    }
+      
     })
-    .state('posts', {
-      url: '/posts/{id}',
-      templateUrl: 'posts/_posts.html',
-      controller: 'PostsCtrl',
-      controllerAs: 'ctrl',
+    .state('jobs', {
+      url: '/jobs',
+      controller: 'JobsController',
+      controllerAs: 'vm',
+      templateUrl: 'jobs/_jobs.html',
+    })
+    .state('job-add', {
+      url: '/jobs/add',
+      controller: 'JobFormController',
+      controllerAs: 'vm',
+      templateUrl: 'jobs/_job-form.html',
       resolve: {
-        post: ['$stateParams', 'postsFactory', function($stateParams, postsFactory) {
-          return postsFactory.get($stateParams.id);
+        CurrentJob: function() {
+          return {};
+        }
+      },
+    })
+    .state('job-edit', {
+      url: '/job/edit/:id',
+      controller: 'JobFormController',
+      controllerAs: 'vm',
+      templateUrl: 'jobs/_job-form.html',
+      resolve: {
+        CurrentJob: ['$stateParams', 'Jobs', function($stateParams, Jobs) {
+          return Jobs.get($stateParams);
         }]
-}
+      },
     })
     .state('login', {
       url: '/login',

@@ -5,17 +5,11 @@ Rails.application.routes.draw do
 
   root to: 'application#angular'
 
-  resources :posts, only: [:create, :index, :show] do
-    resources :comments, only: [:show, :create] do
-      member do
-        put '/upvote' => 'comments#upvote'
-      end
-    end
-
-    member do
-      put '/upvote' => 'posts#upvote'
-    end
-  end
+  resources :jobs
+  resources :roles
+  resources :activity_types
+  resources :knowledge_levels
+  resources :sectors
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'

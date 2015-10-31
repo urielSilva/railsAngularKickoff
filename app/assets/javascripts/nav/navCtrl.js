@@ -1,4 +1,4 @@
-angular.module('flapperNews')
+angular.module('sap')
 .controller('NavCtrl', [
 '$scope',
 'Auth',
