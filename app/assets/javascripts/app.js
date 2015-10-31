@@ -1,4 +1,4 @@
-angular.module('sap', ['templates','ui.router','ngResource','Devise'])
+angular.module('sap', ['templates','ui.router','ui.bootstrap','ngResource','Devise'])
 .config(
 
 ['$stateProvider',
@@ -36,6 +36,34 @@ angular.module('sap', ['templates','ui.router','ngResource','Devise'])
       resolve: {
         CurrentJob: ['$stateParams', 'Jobs', function($stateParams, Jobs) {
           return Jobs.get($stateParams);
+        }]
+      },
+    })
+    .state('roles', {
+      url: '/roles',
+      controller: 'RolesController',
+      controllerAs: 'vm',
+      templateUrl: 'roles/_roles.html',
+    })
+    .state('role-add', {
+      url: '/roles/add',
+      controller: 'RoleFormController',
+      controllerAs: 'vm',
+      templateUrl: 'roles/_role-form.html',
+      resolve: {
+        CurrentRole: function() {
+          return {};
+        }
+      },
+    })
+    .state('role-edit', {
+      url: '/role/edit/:id',
+      controller: 'RoleFormController',
+      controllerAs: 'vm',
+      templateUrl: 'roles/_role-form.html',
+      resolve: {
+        CurrentRole: ['$stateParams', 'Roles', function($stateParams, Roles) {
+          return Roles.get($stateParams);
         }]
       },
     })

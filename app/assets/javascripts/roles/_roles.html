@@ -1,0 +1,35 @@
+
+  <div class="panel-body text-left">
+    <button class="btn btn-info" ui-sref="role-add">Adicionar Perfil</button>
+
+  </div>
+
+
+<div class="panel panel-default">
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="role in vm.roles">
+          <td>
+            <div class="media" ui-sref="role-edit({id: role.id})">
+              <div class="media-body">
+                {{role.name}}
+              </div>
+            </div>
+          </td>
+          <td>
+            <button ng-click="vm.delete(role)" class="btn btn-danger">
+              <i class="fa fa-times"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
