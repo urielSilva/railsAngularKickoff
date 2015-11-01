@@ -1,0 +1,25 @@
+{
+  "name": "sap",
+  "version": "1.0.0",
+  "description": "sistema de acompanhamento de projetos cjr",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/urielSilva/sap.git"
+  },
+  "author": "urielSilva",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/urielSilva/sap/issues"
+  },
+  "homepage": "https://github.com/urielSilva/sap#readme",
+  "dependencies": {
+    "bower": "^1.6.5"
+  }
+}
