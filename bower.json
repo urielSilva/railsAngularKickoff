@@ -16,10 +16,12 @@
     "AngularDevise": "angular-devise#~1.1.0",
     "angular": "~1.4.5",
     "angular-route": "~1.4.5",
-    "angular-ui-router": "~0.2.15",
-    "bootstrap": "~3.3.5"
+    "angular-ui-router": "~0.2.15"
   },
   "resolutions": {
     "angular": "1.4.7"
+  },
+  "devDependencies": {
+    "bootstrap": "~3.3.5"
   }
 }

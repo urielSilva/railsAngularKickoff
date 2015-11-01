@@ -21,10 +21,16 @@ module SGP
     # config.i18n.default_locale = :de
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
+    config.assets.precompile.push(Proc.new do |path|
+  File.extname(path).in? [
+    '.html', '.erb', '.haml',                 # Templates
+    '.png',  '.gif', '.jpg', '.jpeg', '.svg', # Images
+    '.eot',  '.otf', '.svc', '.woff', '.ttf', # Fonts
+  ]
+end)
+
     config.active_record.raise_in_transactional_callbacks = true
     config.assets.enabled = true
-    config.assets.paths << Rails.root.join('vendor', 'assets', 'bower_components') 
-    config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
-    config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
+    config.assets.paths << Rails.root.join('vendor', 'assets', 'bower_components')    
   end
 end
