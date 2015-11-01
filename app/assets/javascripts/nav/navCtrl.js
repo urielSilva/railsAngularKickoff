@@ -36,7 +36,7 @@ function($scope, Auth){
     ];
 
   $scope.linksMembros = [
-    { url: "users", name: "Membros"},
+    { url: "home", name: "Membros"},
   ];
 
 

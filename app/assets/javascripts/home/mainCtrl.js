@@ -1,7 +1,12 @@
 angular.module('sap')
-.controller('MainCtrl', function(){
-  var self = this;
+.controller('MainCtrl', ['Auth','$state',function(Auth, $state){
+  var vm = this;
+
+  
+  if(!Auth.isAuthenticated()) {
+  	$state.go('login');
+  }
   
  
 
-})
+}])
