@@ -1,0 +1,1 @@
+json.extract! @project, :id, :name, :price, :project_status_id, :link

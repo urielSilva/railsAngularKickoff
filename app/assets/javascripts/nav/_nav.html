@@ -9,23 +9,39 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
       <ul class="nav navbar-nav navbar-left">
-    	 
-        <li uib-dropdown on-toggle="toggled(open)">
-      <a ng-show="signedIn()" href id="simple-dropdown" uib-dropdown-toggle>
-        Administrativo
-      </a>
-
-      <ul class="uib-dropdown-menu" aria-labelledby="simple-dropdown">
-        
-        <li ng-repeat="link in links">
-          <a href="#/{{link.url}}">{{link.name}}</a>
+         <li uib-dropdown on-toggle="toggled(open)">
+          <a ng-show="signedIn()" href id="simple-dropdown" uib-dropdown-toggle>
+            Membros
+          </a>
+          <ul class="uib-dropdown-menu" aria-labelledby="simple-dropdown">
+            <li ng-repeat="link in linksMembros">
+              <a href="#/{{link.url}}">{{link.name}}</a>
+            </li>
+          </ul>
         </li>
-      </ul>
-    </li>
 
-        
+        <li uib-dropdown on-toggle="toggled(open)">
+          <a ng-show="signedIn()" href id="simple-dropdown" uib-dropdown-toggle>
+            Projetos
+          </a>
+          <ul class="uib-dropdown-menu" aria-labelledby="simple-dropdown">
+            <li ng-repeat="link in linksProjetos">
+              <a href="#/{{link.url}}">{{link.name}}</a>
+            </li>
+          </ul>
+        </li>
+
+        <li uib-dropdown on-toggle="toggled(open)">
+          <a ng-show="signedIn()" href id="simple-dropdown" uib-dropdown-toggle>
+            Administrativo
+          </a>
+          <ul class="uib-dropdown-menu" aria-labelledby="simple-dropdown">
+            <li ng-repeat="link in linksAdministrativo">
+              <a href="#/{{link.url}}">{{link.name}}</a>
+            </li>
+          </ul>
+        </li>
     	</ul>
         
       

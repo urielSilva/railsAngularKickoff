@@ -26,14 +26,26 @@ function($scope, Auth){
  	$scope.signedIn = Auth.isAuthenticated;
   $scope.logout = Auth.logout;
 
-  $scope.links = [
+  $scope.linksAdministrativo = [
     { url: "jobs", name: "Cargos" },
     { url: "roles", name: "Perfis"},
     { url: "sectors", name: "Núcleos"},
     { url: "knowledge_levels", name: "Níveis de Conhecimento"},
     { url: "activity_types", name: "Tipos de Atividade"},
+    
+    ];
+
+  $scope.linksMembros = [
+    { url: "users", name: "Membros"},
+  ];
+
+
+  $scope.linksProjetos = [
+    { url: "projects", name: "Projetos"},
+    { url: "project_status", name: "Status de Projeto"},
     { url: "technologies", name: "Tecnologias"},
     ];
+
 
   $scope.status = {
     isopen: false

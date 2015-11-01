@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151031150640) do
+ActiveRecord::Schema.define(version: 20151101004602) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,32 @@ ActiveRecord::Schema.define(version: 20151031150640) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  create_table "project_histories", force: :cascade do |t|
+    t.text     "observation"
+    t.integer  "project_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "project_histories", ["project_id"], name: "index_project_histories_on_project_id", using: :btree
+
+  create_table "project_statuses", force: :cascade do |t|
+    t.string   "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.string   "name"
+    t.float    "price"
+    t.integer  "project_status_id"
+    t.string   "link"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "projects", ["project_status_id"], name: "index_projects_on_project_status_id", using: :btree
 
   create_table "roles", force: :cascade do |t|
     t.string   "name"
@@ -80,11 +106,23 @@ ActiveRecord::Schema.define(version: 20151031150640) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "username"
+    t.string   "name"
+    t.integer  "role_id"
+    t.integer  "job_id"
+    t.integer  "area_id"
   end
 
+  add_index "users", ["area_id"], name: "index_users_on_area_id", using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["job_id"], name: "index_users_on_job_id", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["role_id"], name: "index_users_on_role_id", using: :btree
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
   add_foreign_key "areas", "sectors"
+  add_foreign_key "project_histories", "projects"
+  add_foreign_key "projects", "project_statuses"
+  add_foreign_key "users", "areas"
+  add_foreign_key "users", "jobs"
+  add_foreign_key "users", "roles"
 end

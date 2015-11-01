@@ -67,9 +67,7 @@
           <tr ng-repeat="area in vm.sector.areas_attributes" >
             <td>{{area.name}}</td>
             <td>
-              <button  type="button" ng-click="vm.deleteArea(area)" class="btn btn-danger">
-                <i class="fa fa-times"></i>
-              </button>
+                <i ng-click="vm.deleteArea(area)"  class="btn btn-danger glyphicon glyphicon-remove btn-xs"></i>
             </td>
           </tr>
         </tbody>

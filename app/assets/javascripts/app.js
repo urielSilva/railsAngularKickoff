@@ -28,6 +28,34 @@ angular.module('sap', ['templates','ui.router','ui.bootstrap','ngResource','Devi
         }]
       },
     })
+    .state('users', {
+      url: '/users',
+      controller: 'UsersController',
+      controllerAs: 'vm',
+      templateUrl: 'user/_users.html',
+    })
+    .state('user-add', {
+      url: '/users/add',
+      controller: 'UserFormController',
+      controllerAs: 'vm',
+      templateUrl: 'user/_user-form.html',
+      resolve: {
+        CurrentUser: function() {
+          return {};
+        }
+      },
+    })
+    .state('user-edit', {
+      url: '/user/edit/:id',
+      controller: 'UserFormController',
+      controllerAs: 'vm',
+      templateUrl: 'user/_user-form.html',
+      resolve: {
+        CurrentUser: ['$stateParams', 'Users', function($stateParams, Users) {
+          return Users.get($stateParams);
+        }]
+      },
+    })
     .state('roles', {
       url: '/roles',
       controller: 'RolesController',
@@ -96,17 +124,6 @@ angular.module('sap', ['templates','ui.router','ui.bootstrap','ngResource','Devi
       controllerAs: 'vm',
       templateUrl: 'types_activity/_activity-types.html',
     })
-    .state('activityType-add', {
-      url: '/activity_types/add',
-      controller: 'ActivityTypeFormController',
-      controllerAs: 'vm',
-      templateUrl: 'types_activity/_activity-type-form.html',
-      resolve: {
-        CurrentActivityType: function() {
-          return {};
-        }
-      },
-    })
     .state('activityType-edit', {
       url: '/activity_types/edit/:id',
       controller: 'ActivityTypeFormController',
@@ -124,17 +141,6 @@ angular.module('sap', ['templates','ui.router','ui.bootstrap','ngResource','Devi
       controllerAs: 'vm',
       templateUrl: 'tech/_techs.html',
     })
-    .state('technology-add', {
-      url: '/technology/add',
-      controller: 'TechFormController',
-      controllerAs: 'vm',
-      templateUrl: 'tech/_tech-form.html',
-      resolve: {
-        CurrentTech: function() {
-          return {};
-        }
-      },
-    })
     .state('technology-edit', {
       url: '/technology/edit/:id',
       controller: 'TechFormController',
@@ -143,6 +149,51 @@ angular.module('sap', ['templates','ui.router','ui.bootstrap','ngResource','Devi
       resolve: {
         CurrentTech: ['$stateParams', 'Techs', function($stateParams, Techs) {
           return Techs.get($stateParams);
+        }]
+      },
+    })
+    .state('projects', {
+      url: '/projects',
+      controller: 'ProjectsController',
+      controllerAs: 'vm',
+      templateUrl: 'project/_projects.html',
+    })
+    .state('project-add', {
+      url: '/projects/add',
+      controller: 'ProjectFormController',
+      controllerAs: 'vm',
+      templateUrl: 'project/_project-form.html',
+      resolve: {
+        CurrentProject: function() {
+          return {};
+        }
+      },
+    })
+    .state('project-edit', {
+      url: '/projects/edit/:id',
+      controller: 'ProjectFormController',
+      controllerAs: 'vm',
+      templateUrl: 'project/_project-form.html',
+      resolve: {
+        CurrentProject: ['$stateParams', 'Projects', function($stateParams, Projects) {
+          return Projects.get($stateParams);
+        }]
+      },
+    })
+    .state('projectStatus', {
+      url: '/project_status',
+      controller: 'ProjectStatusController',
+      controllerAs: 'vm',
+      templateUrl: 'project_status/_project-status.html',
+    })
+    .state('projectStatus-edit', {
+      url: '/project_status/edit/:id',
+      controller: 'ProjectStatusFormController',
+      controllerAs: 'vm',
+      templateUrl: 'project_status/_project-status-form.html',
+      resolve: {
+        CurrentProjectStatus: ['$stateParams', 'ProjectStatus', function($stateParams, ProjectStatus) {
+          return ProjectStatus.get($stateParams);
         }]
       },
     })
