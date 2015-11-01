@@ -210,8 +210,6 @@ angular.module('sap', ['templates','ui.router','ui.bootstrap','ngResource','Devi
       controllerAs: 'ctrl',
       onEnter: ['$state', 'Auth', function($state, Auth) {
         Auth.currentUser().then(function (){
-          
-          $state.go('home');
         })
       }]
     })

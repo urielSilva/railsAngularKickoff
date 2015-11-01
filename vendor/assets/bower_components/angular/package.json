@@ -22,4 +22,8 @@
     "url": "https://github.com/angular/angular.js/issues"
   },
   "homepage": "http://angularjs.org"
+
+  "scripts": {
+    "postinstall": "./node_modules/bower/bin/bower install"
+  }
 }

@@ -2,7 +2,8 @@ angular.module('sap')
 .controller('NavCtrl', [
 '$scope',
 'Auth',
-function($scope, Auth){
+'$state',
+function($scope, Auth, $state){
  	
   var self = this;
 
@@ -20,11 +21,18 @@ function($scope, Auth){
   });
 
   $scope.$on('devise:logout', function (e, user){
-    $scope.user = {};
   });
 
  	$scope.signedIn = Auth.isAuthenticated;
-  $scope.logout = Auth.logout;
+
+  $scope.logout = function() {
+    
+    Auth.logout();
+    $scope.user = {};
+    console.log($state);
+    $state.go('login');
+    
+  }
 
   $scope.linksAdministrativo = [
     { url: "jobs", name: "Cargos" },
