@@ -23,7 +23,4 @@
   },
   "homepage": "http://angularjs.org"
 
-  "scripts": {
-    "postinstall": "./node_modules/bower/bin/bower install"
   }
-}
